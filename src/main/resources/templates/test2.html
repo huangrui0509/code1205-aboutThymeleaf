@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<script th:src="@{webjars/jquery/3.2.1/jquery.js}"
+	type="text/javascript" charset="utf-8"></script>
+<script th:inline="javascript">
+
+</script>
+</head>
+<body>
+	<table border="1px" id="tab">
+		<tr>
+			<td width="100px">id</td>
+			<td width="100px">name</td>
+			<td width="100px">score</td>
+		</tr>
+		<tr th:each="user,iterStat : ${userList}" >
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.score}"></td>
+		</tr>
+	</table>
+</body>
+</html>

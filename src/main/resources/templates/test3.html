@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+<!-- th:if -->
+<ul th:if="${result}">
+  <li th:each="u : ${userList}" th:text="${u.name}">user name</li>
+</ul>
+<!-- th:href -->
+<a th:href="@{http://www.baidu.com}">点击一下</a>
+
+<!-- 测试th:attr -->
+
+<!--  <input type="button" value="name" class/> -->
+
+</body>
+</html>

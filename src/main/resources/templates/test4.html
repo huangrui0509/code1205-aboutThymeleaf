@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+	<script th:src="@{webjars/jquery/3.2.1/jquery.js}" type="text/javascript" charset="utf-8"></script>
+<script th:inline="javascript">
+
+
+</script>
+</head>
+<body>
+	<!--  <input type="button" value ="新增" class ="updateStu" onclick="insertStu()" />-->
+	
+	
+	当前时间：<h2 th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy-MM-dd hh:mm:ss')}"></h2>
+	<br/>
+	<a th:href="@{getStu?id=0}">新增</a>
+	<br/>
+	<table border="1px" id="tab">
+		<tr>
+			<td width="100px">编号</td>
+			<td width="100px">姓名</td>
+			<td width="100px">性别</td>
+			<td width="100px">分数</td>
+			<td colspan="2" align="center" width="100px">操作</td>
+		</tr>
+		<tr th:each="stu,iterStat : ${stuList}">
+			<td  th:text="${stu.id}"></td>
+			<td th:text="${stu.name}"></td>
+			<td th:if="${stu.gender}==0">男</td>
+			<td th:if="${stu.gender}==1">女</td>
+		<!--  	<td th:text="${stu.gender}"></td> -->
+			<td th:text="${stu.score}"></td>
+			<td>
+				<a th:href="@{/getStu(id=${stu.id})}">修改</a>
+			</td>
+			<td>
+				<a th:href="@{/delStu(id=${stu.id})}">删除</a>
+			</td>
+		</tr>
+	</table>
+	
+	<div th:include="footer::copy"></div>
+
+</body>
+</html>
